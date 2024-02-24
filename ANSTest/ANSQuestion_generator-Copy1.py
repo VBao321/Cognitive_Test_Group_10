@@ -139,6 +139,6 @@ def ANSQuestion_bank(seed):
         plt.close(fig)
     
     for idx in range(64):
-        output_dict.append(image_list[idx]:[answer_lis[idx],num_points_list[0],num_points_list[1],num_points_list[0]/num_points_list[1]])
+        output_dict[image_list[idx]]=[answer_lis[idx],num_points_list[0],num_points_list[1],num_points_list[0]/num_points_list[1]]
         
-    return image_list, num_points_list, answer_list
+    return output_dict
