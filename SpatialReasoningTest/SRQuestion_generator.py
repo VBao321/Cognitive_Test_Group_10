@@ -44,90 +44,70 @@ def create_random_cubes(shape, colors):
 
     return cubes
 
+def random_SRQuestion(shape, colors):
+    options = {}
+    solvable = False
+    cube_arr = cc.CubeArrangement()
+    while solvable == False:
+        cube_arr = cc.CubeArrangement(create_random_cubes(shape,colors), grid=True)
+        solvable = cube_arr.check_solution()
+    question_info["idx"] += 1
+    question_idx = question_info["idx"]
+    cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}.png")
+    image = f"./Figures/SRQ_{question_idx}.png"
+    view_list = ['xy','-xy','xz','-xz','yz','-yz']
+    flip_list = ["x", "y", "z"]
+    option_list = ["a", "b", "c", "d"]
+    rot_list = [0, 90, 180, 270]
+    for idx in range(3):
+        view = np.random.choice(view_list)
+        view_list.remove(view)
+        option = np.random.choice(option_list)
+        option_list.remove(option)
+        rot = np.random.choice(rot_list)
+        cube_arr.set_view(view=view, rot=rot)
+        cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}_{option}.png")
+        options[f"./Figures/SRQ_{question_idx}_{option}.png"]=option
+        
+    view = cube_arr.check_solution()
+    if view[-2:] == "xy":
+        flip_list.remove("z")
+    if view[-2:] == "xz":
+        flip_list.remove("y")
+    if view[-2:] == "yz":
+        flip_list.remove("x")
+    flip= np.random.choice(flip_list)
+    cube_arr.set_view(view=view, flip=flip)
+    answer = option = option_list[0]
+    cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}_{option}.png")
+    
+    options[f"./Figures/SRQ_{question_idx}_{option}.png"]=option
+    
+    return image, options, answer
+
 def SRQuestion_bank(seed):
     np.random.seed(seed)
-    question_list = []
+    image_list = []
+    options_list = []
+    answer_list = []
     question_info["idx"]=0
-    
-    while question_info["idx"]<5:
-        cube_arr = cc.CubeArrangement(create_random_cubes((3,3,3),['r','g','b']), grid=True, ticks=True)
-        if cube_arr.check_cubes_arrange():
-            question_info["idx"] += 1
-            question_idx = question_info["idx"]
-            cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}.png")
-            question_list.append([f"./Figures/SRQ_{question_idx}.png",{}])
-            view_list = ['xy','-xy','xz','-xz','yz','-yz']
-            flip_list = ["x", "y", "z"]
-            option_list = ["a", "b", "c", "d"]
-            for idx in range(3):
-                view = np.random.choice(view_list)
-                view_list.remove(view)
-                option = np.random.choice(option_list)
-                option_list.remove(option)
-                cube_arr.set_view(view=view)
-                cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}_{option}.png")
-                question_list[question_idx-1][1][f"./Figures/SRQ_{question_idx}_{option}.png"]=option
-            view = np.random.choice(view_list)
-            flip = np.random.choice(flip_list)
-            cube_arr.set_view(view=view, flip=flip)
-            answer = option = option_list[0]
-            question_list[question_idx-1].append(answer)
-            cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}_{option}.png")
-            question_list[question_idx-1][1][f"./Figures/SRQ_{question_idx}_{option}.png"]=option
-            
-            
-    while question_info["idx"]<9:
-        cube_arr = cc.CubeArrangement(create_random_cubes((4,4,4),['r','g','b']), grid=True)
-        if cube_arr.check_cubes_arrange():
-            question_info["idx"] += 1
-            question_idx = question_info["idx"]
-            cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}.png")
-            question_list.append([f"./Figures/SRQ_{question_idx}.png",{}])
-            view_list = ['xy','-xy','xz','-xz','yz','-yz']
-            flip_list = ["x", "y", "z"]
-            option_list = ["a", "b", "c", "d"]
-            for idx in range(3):
-                view = np.random.choice(view_list)
-                view_list.remove(view)
-                option = np.random.choice(option_list)
-                option_list.remove(option)
-                cube_arr.set_view(view=view)
-                cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}_{option}.png")
-                question_list[question_idx-1][1][f"./Figures/SRQ_{question_idx}_{option}.png"]=option
-            view = np.random.choice(view_list)
-            flip = np.random.choice(flip_list)
-            cube_arr.set_view(view=view, flip=flip)
-            answer = option = option_list[0]
-            question_list[question_idx-1].append(answer)
-            cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}_{option}.png")
-            question_list[question_idx-1][1][f"./Figures/SRQ_{question_idx}_{option}.png"]=option
+    lvl_1 = [(3,3,3), ["r", "g", "b"]]
+    lvl_2 = [(4,4,4), ["r", "g", "b"]]
+    lvl_3 = [(5,5,5), ["r", "g", "b", "y"]]
+    for idx in range(5):
+        question = random_SRQuestion(lvl_1[0], lvl_1[1])
+        image_list.append(question[0])
+        options_list.append(question[1])
+        answer_list.append(question[2])
+    for idx in range(4):
+        question = random_SRQuestion(lvl_2[0], lvl_2[1])
+        image_list.append(question[0])
+        options_list.append(question[1])
+        answer_list.append(question[2])
+    for idx in range(3):
+        question = random_SRQuestion(lvl_3[0], lvl_3[1])
+        image_list.append(question[0])
+        options_list.append(question[1])
+        answer_list.append(question[2])
         
-    while question_info["idx"]<12:
-        cube_arr = cc.CubeArrangement(create_random_cubes((5,5,5),['r','g','b','y']), grid=True)
-        if cube_arr.check_cubes_arrange():
-            question_info["idx"] += 1
-            question_idx = question_info["idx"]
-            cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}.png")
-            question_list.append([f"./Figures/SRQ_{question_idx}.png",{}])
-            view_list = ['xy','-xy','xz','-xz','yz','-yz']
-            flip_list = ["x", "y", "z"]
-            option_list = ["a", "b", "c", "d"]
-            for idx in range(3):
-                view = np.random.choice(view_list)
-                view_list.remove(view)
-                option = np.random.choice(option_list)
-                option_list.remove(option)
-                cube_arr.set_view(view=view)
-                cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}_{option}.png")
-                question_list[question_idx-1][1][f"./Figures/SRQ_{question_idx}_{option}.png"]=option
-            view = np.random.choice(view_list)
-            flip = np.random.choice(flip_list)
-            cube_arr.set_view(view=view, flip=flip)
-            answer = option = option_list[0]
-            question_list[question_idx-1].append(answer)
-            cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}_{option}.png")
-            question_list[question_idx-1][1][f"./Figures/SRQ_{question_idx}_{option}.png"]=option
-            
-    return question_list
-    
-    
+    return image_list, options_list, answer_list

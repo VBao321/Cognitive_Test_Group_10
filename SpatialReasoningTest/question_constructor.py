@@ -5,12 +5,6 @@ from functools import partial
 import time
 from jupyter_ui_poll import ui_events
 
-# Global dictionary to track progress through questions.
-question_idx = {
-    "idx": None,
-    "final": None
-}
-
 def clear_output(wait=False):
     """
     Clears the output and displays current question progress.
@@ -27,32 +21,36 @@ def clear_output(wait=False):
     # Use clear_output function from IPython.display.
     ipy_clear_output(wait=wait)
     
-    # Display progress indicator.
-    idx = question_idx["idx"]
-    final_idx = question_idx["final"]
-    progress_indicator(idx, final_idx)
+    # Display progress bar.
+    display(progress_bar)
     
     return
     
-def progress_indicator(idx, final_idx):
+def set_progress_bar(max):
     """
-    Displays a progress indicator in the form of a fraction.
+    Initializes a progress bar
 
     Parameters:
-        idx (int): Current progress index.
-        final_idx (int): Final progress index.
+        max (int): Final progress index.
 
     Returns:
         None
     """
-    
     # Display progress indicator.
-    html_out = HTML(f"<span style='font-size: 20px'>Question {idx}/{final_idx}<span>")
-    display_html(html_out)
     
-    # Update current question index
-    question_idx["idx"]=idx
-    question_idx["final"]=final_idx
+    idx = 0
+    progress_bar = widgets.IntProgress(
+        min=0,
+        max=max,
+        description=f"Q {idx}/{max}",
+        orientation='horizontal'
+    )
+    
+    return progress_bar
+
+def update_progress_bar(progress_bar, idx):
+    progress_bar.value = idx
+    progress_bar.description = f"Q {idx}/{progress_bar.max}"
     
     return
 

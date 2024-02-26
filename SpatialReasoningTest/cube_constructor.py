@@ -114,7 +114,7 @@ class CubeArrangement:
         elif self.view == 'yz':
             self.ax.view_init(0, 0, 0+self.rot)
         elif self.view == '-yz':
-            self.ax.view_init(0, 180, 0-self.rot)
+            self.ax.view_init(0, -180, 0-self.rot)
         else:
             self.ax.view_init(azim=self.ax.azim+self.rot)
         
@@ -209,7 +209,7 @@ class CubeArrangement:
         self.loc = loc
         
         # Update colors if new cube location is within bounds, else print error.
-        if (loc[0][-1] < self.cubes.shape[0] and loc[1][-1] < self.cubes.shape[1]) and loc[2][-1] < self.cubes.shape[2]:
+        if (loc[0][-1] < self.nx and loc[1][-1] < self.ny) and loc[2][-1] < self.nz:
             self.cubes[loc[0][0]:loc[0][-1]+1,loc[1][0]:loc[1][-1]+1,loc[2][0]:loc[2][-1]+1] = color            
         else:
             print("Specified location is outside the array boundaries.")
@@ -219,50 +219,47 @@ class CubeArrangement:
             
         return
     
-    def check_cubes_arrange(self):
-        depth, rows, cols = self.cubes.shape
-        z_1 = np.full((rows,cols),"")
-        z_2 = np.full((rows,cols),"")
-        x_1 = np.full((depth,cols),"")
-        x_2 = np.full((depth,cols),"")
-        y_1 = np.full((depth,cols),"")
-        y_2 = np.full((depth,cols),"")
-        for idx in range(depth):
-            z_1_not_non = self.cubes[idx,:,:] != ''
-            z_1[z_1_not_non] = self.cubes[idx,:,:][z_1_not_non]
-            z_2_not_non = self.cubes[depth-idx-1,:,:] != ''
-            z_2[z_2_not_non] = self.cubes[depth-idx-1,:,:][z_2_not_non]
-        for idx in range(rows):
-            x_1_not_non = self.cubes[:,idx,:] != ''
-            x_1[x_1_not_non] = self.cubes[:,idx,:][x_1_not_non]
-            x_2_not_non = self.cubes[:,rows-idx-1,:] != ''
-            x_2[x_2_not_non] = self.cubes[:,rows-idx-1,:][x_2_not_non]
-        for idx in range(cols):
-            y_1_not_non = self.cubes[:,:,idx] != ''
-            y_1[y_1_not_non] = self.cubes[:,:,idx][y_1_not_non]
-            y_2_not_non = self.cubes[:,:,cols-idx-1] != ''
-            y_2[y_2_not_non] = self.cubes[:,:,cols-idx-1][y_2_not_non]
+    def check_solution(self):
+        yz_1 = np.full((self.nx,self.nz),"")
+        yz_2 = np.full((self.nx,self.nz),"")
+        xz_1 = np.full((self.ny,self.nz),"")
+        xz_2 = np.full((self.ny,self.nz),"")
+        xy_1 = np.full((self.nx,self.ny),"")
+        xy_2 = np.full((self.nx,self.ny),"")
+        for idx in range(self.nx):
+            yz_1_not_non = self.cubes[self.nx-idx-1,:,:] != ''
+            yz_1[yz_1_not_non] = self.cubes[self.nx-idx-1,:,:][yz_1_not_non]
+            yz_2_not_non = np.fliplr(self.cubes[idx,:,:]) != ''
+            yz_2[yz_2_not_non] = np.fliplr(self.cubes[idx,:,:])[yz_2_not_non]
+        for idx in range(self.ny):
+            xz_1_not_non = self.cubes[:,self.ny-idx-1,:] != ''
+            xz_1[xz_1_not_non] = self.cubes[:,self.ny-idx-1,:][xz_1_not_non]
+            xz_2_not_non = np.fliplr(self.cubes[:,idx,:]) != ''
+            xz_2[xz_2_not_non] = np.fliplr(self.cubes[:,idx,:])[xz_2_not_non]
+        for idx in range(self.nz):
+            xy_1_not_non = self.cubes[:,:,idx] != ''
+            xy_1[xy_1_not_non] = self.cubes[:,:,idx][xy_1_not_non]
+            xy_2_not_non = np.fliplr(self.cubes[:,:,self.nz-idx-1]) != ''
+            xy_2[xy_2_not_non] = np.fliplr(self.cubes[:,:,self.nz-idx-1])[xy_2_not_non]
 
-        faces = [[z_1],[z_2],[x_1],[x_2],[y_1],[y_2]]
+        faces = [[xy_1],[xy_2],[xz_1],[xz_2],[yz_1],[yz_2]]
         for face in faces:
             for idx in range(3):
                 face.append(np.rot90(face[idx]))
-
-        faces_flip = []
-        for face in faces:
-            face_flip = []
-            for direction in face:
-                direction_flip = [np.fliplr(direction),np.flipud(direction)]
-                face_flip.append(direction_flip)
-            faces_flip.append(face_flip)
-
-        for face_flip in faces_flip:
-            for direction_flip in face_flip:
-                for flip in direction_flip:
-                    for face in faces:
-                        for direction in face:
-                            if np.array_equal(flip, direction):
-                                return False
+                
+        view_list = ["xy", "-xy", "xz", "-xz", "yz", "-yz"]
         
-        return True
+        faces_flip = {}
+        for idx in range(len(view_list)):
+            view = view_list[idx]
+            faces_flip[view]=np.fliplr(faces[idx][0])
+        
+        for view in faces_flip:
+            flip = faces_flip[view]
+            direction_list = [direction for face in faces for direction in face]
+            found = any(np.array_equal(flip, direction) for direction in direction_list)
+            if not found:
+                return view
+        
+        return False
 
