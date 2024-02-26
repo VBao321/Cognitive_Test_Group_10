@@ -77,7 +77,8 @@ def random_SRQuestion(shape, colors):
     if view[-2:] == "yz":
         flip_list.remove("x")
     flip= np.random.choice(flip_list)
-    cube_arr.set_view(view=view, flip=flip)
+    rot = np.random.choice(rot_list)
+    cube_arr.set_view(view=view, flip=flip, rot=rot)
     answer = option = option_list[0]
     cube_arr.fig.savefig(f"./Figures/SRQ_{question_idx}_{option}.png")
     
@@ -94,17 +95,17 @@ def SRQuestion_bank(seed):
     lvl_1 = [(3,3,3), ["r", "g", "b"]]
     lvl_2 = [(4,4,4), ["r", "g", "b"]]
     lvl_3 = [(5,5,5), ["r", "g", "b", "y"]]
-    for idx in range(5):
+    for idx in range(3):
         question = random_SRQuestion(lvl_1[0], lvl_1[1])
         image_list.append(question[0])
         options_list.append(question[1])
         answer_list.append(question[2])
-    for idx in range(4):
+    for idx in range(2):
         question = random_SRQuestion(lvl_2[0], lvl_2[1])
         image_list.append(question[0])
         options_list.append(question[1])
         answer_list.append(question[2])
-    for idx in range(3):
+    for idx in range(1):
         question = random_SRQuestion(lvl_3[0], lvl_3[1])
         image_list.append(question[0])
         options_list.append(question[1])

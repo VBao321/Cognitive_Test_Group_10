@@ -54,7 +54,7 @@ def get_data(data_keys, sheet_id):
     """
     
     # Initialize an empty list to store data from each specified column
-    data_list = []
+    data_dict = {}
         
     # Define the URLs for viewing the Google Form.
     view_sheet_url = f'https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv'
@@ -73,6 +73,6 @@ def get_data(data_keys, sheet_id):
     # Extract data for each specified column
     for key in data_keys:
         key_list = df[key].tolist()
-        data_list.append(key_list)
+        data_dict[key] = key_list
     
-    return data_list
+    return data_dict

@@ -483,7 +483,7 @@ class SpatialReasoningQuestion(Question):
         display(self.options_box)
         
         # Check for submission.
-        self.wait_for_submission()
+        self.wait_for_submission(timeout=35)
 
         return
 
