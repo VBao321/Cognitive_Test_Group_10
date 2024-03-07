@@ -2,7 +2,7 @@ numpy
 pandas
 matplotlib
 jupyter_ui_poll
-PIL
+Pillow
 os
 tk_html_widgets
 
