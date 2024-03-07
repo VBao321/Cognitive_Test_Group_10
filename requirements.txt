@@ -2,7 +2,7 @@ numpy
 pandas
 matplotlib
 jupyter_ui_poll
-Pillow==8.2.0
+Pillow==5.3.0
 tk_html_widgets
 
 
