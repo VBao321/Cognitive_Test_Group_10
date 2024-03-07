@@ -2,8 +2,8 @@ numpy
 pandas
 matplotlib
 jupyter_ui_poll
-tkinter
+
 threading
 PIL
 os
-tk_html_widgets
+
