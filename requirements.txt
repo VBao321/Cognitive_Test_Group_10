@@ -3,7 +3,6 @@ pandas
 matplotlib
 jupyter_ui_poll
 Pillow
-os
 tk_html_widgets
 
 
