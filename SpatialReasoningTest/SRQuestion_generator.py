@@ -50,7 +50,7 @@ def random_SRQuestion(shape, colors):
     cube_arr = cc.CubeArrangement()
     grid_size = shape[0]
     while solvable == False:
-        cube_arr = cc.CubeArrangement(create_random_cubes(shape,colors), grid=True)
+        cube_arr = cc.CubeArrangement(create_random_cubes(shape,colors), grid=True, ticks=True)
         solvable = cube_arr.check_solution()
     question_info["idx"] += 1
     question_idx = question_info["idx"]

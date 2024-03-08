@@ -155,9 +155,9 @@ class CubeArrangement:
                 axis._axinfo['tick']['outward_factor'] = 0.0
         
         # Remove tick labels.
-        self.ax.set_xticks([])
-        self.ax.set_yticks([])
-        self.ax.set_zticks([])
+        self.ax.set_xticklabels([])
+        self.ax.set_yticklabels([])
+        self.ax.set_zticklabels([])
         
         # Toggle grid visibility based on 'grid' setting.
         self.ax.grid(self.grid)
