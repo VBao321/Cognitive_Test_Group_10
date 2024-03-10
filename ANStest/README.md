@@ -4,7 +4,7 @@ The ANS_Test code, authored by Lihao Tao, is designed for conducting a test to a
 
 ## Test Description
 
-The test challenges participants to select the image with a higher count of randomly placed dots. These images flash on the screen for a duration of 0.75 seconds, with a 3-second time limit given for each response. Between each question, there is a 1.5-second interval to prepare for the next one. Participant's accuracy and speed in these quick-paced decisions on number sensing are recorded.
+The test challenges participants to select the image with a higher count of randomly placed dots. These images flash on the screen for a duration of 0.75 seconds, with a 3-second time limit given for each response. Between each question, there is a 1.5-second interval to prepare for the next one. Participant's accuracy and response time in these quick-paced decisions on number sensing are recorded.
 
 ## Data Collection
 
