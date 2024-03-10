@@ -1,6 +1,6 @@
 # ANS Test Code v1.0.0
 
-The ANS_Test code, authored by Lihao Tao, is designed for conducting a test to assess the Approximate Number System (ANS) abilities of university students in London. This document provides a brief overview of the test and its implementation.
+The ANS Test code, authored by Lihao Tao, is designed for conducting a test to assess the Approximate Number System (ANS) abilities of university students in London. This document provides a brief overview of the test and its implementation.
 
 ## Test Description
 
