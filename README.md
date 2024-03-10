@@ -23,6 +23,3 @@ For each test, participants' accuracy rates and response times are recorded alon
 The tests are made accessible online through [mybinder.org](https://mybinder.org), allowing for a wider reach and participation.
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VBao321/Cognitive_Test_Group_10.git/HEAD)
-
-.. image:: https://mybinder.org/badge_logo.svg
- :target: https://mybinder.org/v2/gh/VBao321/Cognitive_Test_Group_10.git/HEAD
