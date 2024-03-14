@@ -1,4 +1,4 @@
-# Cognitive Test Group 10
+# Cognitive Test Group 10 v2.0.0
 
 This project, developed as part of the BIOS0030 course, is designed to assess various cognitive abilities through a series of tests. Each test focuses on a different aspect of cognitive functioning, providing a comprehensive evaluation of the participants' skills. The repository contains all necessary code to administer these tests.
 
