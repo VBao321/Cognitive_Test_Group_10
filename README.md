@@ -41,3 +41,31 @@ For each test, participants' accuracy rates and response times are recorded alon
 The tests are made accessible online through [mybinder.org](https://mybinder.org), allowing for a wider reach and participation.
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VBao321/Cognitive_Test_Group_10.git/HEAD)
+
+## Software Features
+
+### Integrated User Interface
+
+- Hosted within Python Tkinter GUI for seamless test transitions.
+
+### Comprehensive Test Instructions
+
+- Detailed instructions provided before each test for clarity on test objectives and response methods.
+
+### Randomized Test Questions
+
+- Advanced randomized functions create unique ANS, Math Ability, and Spatial Reasoning Test questions, using seed 60 for consistent reproducibility. This process runs in parallel with user data entry, optimizing test start times.
+
+### Instant Result Feedback
+
+- Immediate feedback on accuracy and percentile ranking after each test.
+
+### User-Friendly UI
+
+- Intuitive Tkinter widgets ensure ease of navigation and interaction.
+
+## Changelog
+
+- New Feature: Integrated all four tests into a single application using Tkinter GUI, where all interactions are managed through Tkinter widgets.
+- New Feature: Introduced a 5-second instruction display before the start of each test, helping participants understand the test's instructions and objectives.
+- Performance and User Experience Improvements: Implemented parallel loading of tests to significantly reduce waiting times. While participants input their personal information at the program's startup, tests are loaded in the background. If test content is not fully preloaded by the time the participants completes their personal information, the program will notify the participants and display the respective test's instructions until the content is ready.
