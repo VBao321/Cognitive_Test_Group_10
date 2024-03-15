@@ -54,7 +54,7 @@ The tests are made accessible online through [mybinder.org](https://mybinder.org
 
 ### Randomized Test Questions
 
-- Advanced randomized functions create unique ANS, Math Ability, and Spatial Reasoning Test questions, using seed 60 for consistent reproducibility. This process runs in parallel with user data entry, optimizing test start times.
+- Advanced randomization functions create unique ANS, Math Ability, and Spatial Reasoning Test questions, using seed 60 for consistent reproducibility. This process runs in parallel with user data entry, optimizing test start times.
 
 ### Instant Result Feedback
 
@@ -64,8 +64,11 @@ The tests are made accessible online through [mybinder.org](https://mybinder.org
 
 - Intuitive Tkinter widgets ensure ease of navigation and interaction.
 
-## Changelog
+## Post-v1.0.0 Updates
 
-- New Feature: Integrated all four tests into a single application using Tkinter GUI, where all interactions are managed through Tkinter widgets.
-- New Feature: Introduced a 5-second instruction display before the start of each test, helping participants understand the test's instructions and objectives.
-- Performance and User Experience Improvements: Implemented parallel loading of tests to significantly reduce waiting times. While participants input their personal information at the program's startup, tests are loaded in the background. If test content is not fully preloaded by the time the participants completes their personal information, the program will notify the participants and display the respective test's instructions until the content is ready.
+- Integrated all four tests into a single application using Tkinter GUI, where all interactions are managed through Tkinter widgets.
+- Input method for the ANS Test has been updated from clicking buttons to pressing left and right arrow keys.
+- Random question generator for Math Ability Test, with seed supports to produce reproducible questions.
+- Timer display for every questions.
+- Introduced a 5-second instruction display before the start of each test, helping participants understand the test's instructions and objectives.
+- Implemented parallel loading of tests to significantly reduce waiting times. While participants input their personal information at the program's startup, tests are loaded in the background. If test content is not fully preloaded by the time the participants completes their personal information, the program will notify the participants and display the respective test's instructions until the content is ready.
