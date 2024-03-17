@@ -30,7 +30,7 @@ The Memory Test is structured around four main questions, each comprising a matr
 
 ### Spatial Reasoning Test
 
-Participants are presented with a series of 9 spatial reasoning questions, each involving a randomly generated three-dimensional cybe arrangement. The task is to identify, from four options (A, B, C, D), which two-dimensional image cannot be obtained by rotating the given three-dimensional figure. A time limit of 25 seconds is allocated for answering each question, aiming to assess not only accuracy but also the speed of spatial reasoning.
+Participants are presented with a series of 9 spatial reasoning questions, each involving a randomly generated three-dimensional cube arrangement. The task is to identify, from four options (A, B, C, D), which two-dimensional image cannot be obtained by rotating the given three-dimensional figure. A time limit of 25 seconds is allocated for answering each question, aiming to assess not only accuracy but also the speed of spatial reasoning.
 
 ## Data Collection
 
