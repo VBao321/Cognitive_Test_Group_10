@@ -12,7 +12,7 @@ The project comprises four distinct tests, each targeting a specific cognitive s
 
 3. **Memory Test**: Created by Hazim Mohammad Tarmizi, this test assesses memory capabilities, focusing on the recall of colors and spatial positions within an image matrix.
 
-4. **Spatial Reasoning Test**: Written by Weiye Bao, this test evaluates the ability to manipulate and understand three-dimensional space, identifying images that cannot be derived from rotating a given three-dimensional figure.
+4. **Spatial Reasoning Test**: Written by Weiye Bao, this test evaluates the ability to understand three-dimensional space, identifying images that cannot be derived from rotating a given three-dimensional figure.
 
 ## Test Details
 
