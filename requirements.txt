@@ -1,0 +1,7 @@
+numpy
+pandas
+matplotlib
+jupyter_ui_poll
+
+
+
