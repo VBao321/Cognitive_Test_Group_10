@@ -81,7 +81,7 @@ def test_set_up():
     <div style='font-size:12px;'>
     <p>The Memory Test is structured around four main questions, each comprising a matrix of images.</p>
     <p>Participants are tasked with memorizing as many details as possible about the colors and relative positions of the images within a 20-second timeframe.</p>
-    <p>Following this memorization phase, participants answer five related questions each with a 5-second time limit to test their recall of the images.</p>
+    <p>Following this memorization phase, participants answer five related questions each with a 15-second time limit to test their recall of the images.</p>
     p>Participant's accuracy and response are recorded.</p>
     </div>
     </div>
