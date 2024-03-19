@@ -90,3 +90,7 @@ The tests are made accessible online through [mybinder.org](https://mybinder.org
 - Timer display for every questions.
 - Introduced a 5-second instruction display before the start of each test, helping participants understand the test's instructions and objectives.
 - Implemented parallel loading of tests to significantly reduce waiting times. While participants input their personal information at the program's startup, tests are loaded in the background. If test content is not fully preloaded by the time the participants completes their personal information, the program will notify the participants and display the respective test's instructions until the content is ready.
+
+## Note:
+- Please note that the Test folder is only used to store the respective images. Thus, there is no folder for Math Test as it does not require the use of images.
+- The Data folder serves the purpose of storing the updated test result dataset from the internet, which will be utilized for calculating percentile ranking.
