@@ -42,6 +42,24 @@ The tests are made accessible online through [mybinder.org](https://mybinder.org
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VBao321/Cognitive_Test_Group_10.git/HEAD)
 
+## How to Run
+
+1. **Install Required Packages**:
+   - Make sure you have the following packages installed:
+     - tkinter
+     - tk_html_widgets
+     - numpy
+     - pandas
+     - matplotlib
+     - BeautifulSoup
+
+2. **Local Installation**:
+   - Since the final version utilizes Tkinter GUI, it cannot be displayed on mybinder.org; therefore, you need to install the project locally on your machine.
+
+3. **Open main.ipynb**:
+   - After installing all the required packages, navigate to the project directory.
+   - Open the main.ipynb file and run the test.
+
 ## Software Features
 
 ### Integrated User Interface
