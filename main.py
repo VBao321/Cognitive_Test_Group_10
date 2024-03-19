@@ -70,7 +70,7 @@ def test_set_up():
     <p>The test comprises 15 mathematical questions, each involving a sequence of calculation steps displayed for 2 seconds per step.</p>
     <p>Participants are required to memorize these steps and input the final calculation result after the steps are no longer visible.</p>
     <p>Between each question, there is a 1.5-second interval to prepare for the next one.</p>
-    p>Participant's accuracy and response are recorded.</p>
+    <p>Participant's accuracy and response are recorded.</p>
     </div>
     </div>
     """
@@ -82,7 +82,7 @@ def test_set_up():
     <p>The Memory Test is structured around four main questions, each comprising a matrix of images.</p>
     <p>Participants are tasked with memorizing as many details as possible about the colors and relative positions of the images within a 20-second timeframe.</p>
     <p>Following this memorization phase, participants answer five related questions each with a 15-second time limit to test their recall of the images.</p>
-    p>Participant's accuracy and response are recorded.</p>
+    <p>Participant's accuracy and response are recorded.</p>
     </div>
     </div>
     """
@@ -94,7 +94,7 @@ def test_set_up():
     <p>Participants are presented with a series of 9 spatial reasoning questions, each involving a randomly generated three-dimensional cybe arrangement.</p>
     <p>The task is to identify, from four options (A, B, C, D), which two-dimensional image cannot be obtained by rotating the given three-dimensional figure.</p>
     <p>A time limit of 25 seconds is allocated for answering each question, aiming to assess not only accuracy but also the speed of spatial reasoning.</p>
-    p>Participant's accuracy and response are recorded.</p>
+    <p>Participant's accuracy and response are recorded.</p>
     </div>
     </div>
     """
