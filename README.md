@@ -42,7 +42,7 @@ The tests are made accessible online through [mybinder.org](https://mybinder.org
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VBao321/Cognitive_Test_Group_10.git/HEAD)
 
-## How to Run
+## How to Run - Final Version
 
 1. **Install Required Packages**:
    - Make sure you have the following packages installed:
